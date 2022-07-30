@@ -238,6 +238,12 @@ Users may want to reproducibly install an application or environment using a
 lock file as specified in this PEP, and use reproducible builds of wheels as
 installables, instead of binaries uploaded to PyPI. 
 
+The main motivation for reproducible builds is to allow verification that no
+vulnerabilities or backdoors have been introduced during the build. Another
+motivation is that build systems can choose to skip rebuilding dependents if the
+build of the package at hand is no different than a previous build of the
+package.
+
 Reproducible build of wheels is out of scope of this PEP, however, third-party
 systems exist that can perform reproducible builds of wheels, both those
 consisting of only pure-Python and those with binaries. Such systems carefully
@@ -248,8 +254,9 @@ An example is the Nix package manager and the Nix packages set (Nixpkgs)
 containing expressions for thousands of Python packages. The tool `poetry2nix`
 takes a Poetry lock file and a version of Nixpkgs, and allows the reproducible
 build and installation of the application or environment specified in the lock
-file.
-
+file. Furthermore, efforts are ongoing to avoid unnecessary rebuilds of
+dependents by using a `content-addressed model
+<https://www.tweag.io/blog/2020-09-10-nix-cas/>`.
 
 ---------------------------------
 Version versus file-based locking
