@@ -224,11 +224,21 @@ only Python code, whereas platform specific wheels can also contain binaries.
 
 It is not always possible to install binaries built elsewhere as organizations
 may not always permit doing so. Building from source may be an option then.
+
 Similarly, distributions may not be able to use or install binaries and hence
 want to build from source. Hence, when using a third-party lock file, it is
 possible that the requirements cannot be met since the rebuilt package will have
 a different hash than the one in the lock file because the build is not
 reproducible.
+
+Finally, users may want to have binaries built with different flags. For
+pure-Python packages and environments this is typically not relevant, and in
+practice many users of extension modules may also not bother with setting flags.
+However, there will be users that want to be able to use a lock file and be able
+to use their versions of packages. For example, when considering numerical
+computing, users may want to use a package built with a certain BLAS or BLAS
+flags. Similarly, when using CUDA, users may want to rebuild their wheels
+targetting specifically their hardware.
 
 -------------------
 Reproducible builds
