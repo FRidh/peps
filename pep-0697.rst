@@ -345,6 +345,10 @@ lock file or by the user when using a front-end and ignoring the file-based
 constraint. An example of a constrain given by the user would be to always use
 source distributions.
 
+Because building from source means recording also build-time requirements, the
+lock file needs to support storing multiple environments: that of the final
+environment but also of the ephemeral environments used for building wheels.
+
 -------
 Details
 -------
@@ -363,6 +367,17 @@ assists in making lock files more human-readable.
 
 The following sections are the top-level keys of the TOML file data
 format. Any field not listed as **required** is considered optional.
+
+
+.. Top level array
+.. [metadata] lock file metadata
+.. Under that
+.. [environments] contains each ephemeral and final environment specifying its requirements. Optionally allow additional environments.
+.. [package] 
+.. Locking is done for each environment separately.
+
+
+
 
 
 .. ``version``
