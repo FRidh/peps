@@ -895,9 +895,9 @@ format. Any field not listed as **required** is considered optional.
 .. more difficult aspect to implement.
 
 
-.. ==============
-.. Rejected Ideas
-.. ==============
+==============
+Rejected Ideas
+==============
 
 .. ----------------------------
 .. File Formats Other Than TOML
