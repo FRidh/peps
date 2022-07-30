@@ -276,8 +276,7 @@ Two different strategies to do locking are
 
 1. *version-based* where all installables that meet the version constraints are
    recorded;
-2. *file-based* where exactly one installable per package is recorded, that is,
-   the one that was installed.
+2. *file-based* where one installable is recorded per supported platform and Python version.
 
 PEP 665 proposed file-based locking. The advantage of file-based locking is that
 you know exactly which files need to be installed, and hence it is possible to
