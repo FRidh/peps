@@ -1038,6 +1038,17 @@ format. Any field not listed as **required** is considered optional.
 .. to a separate PEP.
 
 
+--------------------
+Dynamic dependencies
+--------------------
+
+Source distributions can specify dynamic dependencies. This means it is not
+necessarily possible to, ahead of time, know the actual dependencies and thus
+lock them. This is a limitation caused by the freedom that build backends have,
+and needs to be accepted. It is up to third-party tooling to choose how to deal
+with this issue.
+
+
 .. -------------------------------------------------------------------------------------
 .. Allowing Source Distributions and Source Trees to be an Opt-In, Supported File Format
 .. -------------------------------------------------------------------------------------
